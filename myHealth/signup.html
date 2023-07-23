@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>myHealth Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="signupStyle.css">
+</head>
+<body>
+  <h1>Welcome to myHealth Sign Up</h1>
+  <form id="signup-form">
+    <div class="form-group-left">
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" required>
+    </div>
+
+    <div class="form-group-left">
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" required>
+    </div>
+
+    <div class="form-group-left">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group-left">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+
+    <div class="form-group-left">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+
+    <div class="form-group-right">
+        <label for="reenterpassword">Re-enter Password:</label>
+        <input type="password" id="reenterpassword" name="reenterpassword" required>
+      </div>
+
+    <div class="form-group-right">
+      <label for="province">Province:</label>
+      <input type="text" id="province" name="province" required>
+    </div>
+
+    <div class="form-group-right">
+      <label for="district">District:</label>
+      <input type="text" id="district" name="district" required>
+    </div>
+
+    <div class="form-group-right">
+      <label for="sector">Sector:</label>
+      <input type="text" id="sector" name="sector" required>
+    </div>
+
+    <div class="form-group-right">
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" required>
+    </div>
+
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <div id="login-link">
+    <p>Have an account? <a href="login.html">Log in</a></p>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>
