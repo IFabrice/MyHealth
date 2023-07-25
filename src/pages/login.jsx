@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Grid, Button, Container } from "@mantine/core";
 import supabase from "../lib/supabaseClient";
+import myHealthLogo from "../lib/myHealthLogo.png"
 import './login.css';
 
 
@@ -21,7 +22,7 @@ function LogIn() {
     return (
         <Container>
             <div >
-                <img src="../lib/myHealthLogo.png" alt="MyHealth"/>
+                <img width="200"  src={myHealthLogo} alt="MyHealth"/><br></br>
                 <Grid>
                     <Grid.Col span={4}>
                         <p className="text">Email/Phone number</p><br></br>
