@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import LogIn from './pages/login'
+import {Routes, Route} from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,9 +13,14 @@ function App() {
   };
 
   return (
-    <dev styel="pageStyle">
-      <LogIn/>
-    </dev>
+
+    <Routes>
+      <Route
+        path="/login"
+        element={<LogIn/>} />
+    </Routes>
+
+
   );
 }
 
