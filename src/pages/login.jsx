@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Grid, Button, Container } from "@mantine/core";
 import supabase from "../lib/supabaseClient";
+import { useNavigate } from "react-router-dom";
 import myHealthLogo from "../lib/myHealthLogo.png"
 import './login.css';
 
@@ -10,6 +11,7 @@ function LogIn() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     async function signUp() {
         const { data, error } = await supabase.auth.signUp({
@@ -17,7 +19,10 @@ function LogIn() {
           password: password,
         })
     }
-    
+
+    const navigateSignup = () => {
+        navigate("/signup");
+    }    
 
     return (
         <Container>
@@ -53,7 +58,7 @@ function LogIn() {
                         <p className="text2">Don't have an account?</p>
                     </Grid.Col>
                     <Grid.Col span={5}>
-                        <p className="text">Signup</p>
+                        <p onClick={navigateSignup} className="text">Signup</p>
                     </Grid.Col>
                 </Grid>
             </div>

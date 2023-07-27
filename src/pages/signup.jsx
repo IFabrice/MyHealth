@@ -3,17 +3,25 @@ import { createClient } from "@supabase/supabase-js";
 import PropTypes from "prop-types";
 import logo from "../lib/myHealthLogo.png";
 import {Grid, Button, Container} from "@mantine/core";
-import { MantineProvider } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 import './signup.css'
 
 // const supabase = createClient("https://boktoqjaqpgmdqxdeuag.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJva3RvcWphcXBnbWRxeGRldWFnIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTAxMTkxMzQsImV4cCI6MjAwNTY5NTEzNH0.bXhTutBUkqBxHboCV55PLU7oJ4IM000YFUuz3KtSaGo");
 
 function SignUp() {
     // const {user} = props; 
+    const navigate = useNavigate();
+
+
+    const navigateLogin = () => {
+        navigate("/login");
+    }
 
     // useEffect(()=> {
     //     getUser();
     // });
+
+
     
     return (
         <Container>
@@ -80,7 +88,7 @@ function SignUp() {
             <Button>Signup</Button>
             <div className="toLogin">
                 <p className="haveAccount">Have an account?</p>
-                <p className="login">login</p>
+                <p onClick={navigateLogin} className="login">login</p>
             </div>
             
         </Container>

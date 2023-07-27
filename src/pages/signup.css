@@ -19,6 +19,14 @@
 
   .login {
     font-style: italic;
+
+  }
+
+  .login:hover {
+    font-style: italic;
+    color: #7c8891;
+    cursor:pointer;
+    
   }
 
   .inputsName {
