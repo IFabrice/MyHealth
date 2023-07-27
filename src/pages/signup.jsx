@@ -11,11 +11,16 @@ import './signup.css'
 function SignUp() {
     // const {user} = props; 
     const navigate = useNavigate();
+    const [password, setPassword] = useState('');
 
 
     const navigateLogin = () => {
         navigate("/login");
     }
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    };
 
     // useEffect(()=> {
     //     getUser();
@@ -29,65 +34,70 @@ function SignUp() {
 
             <Grid>
                     <Grid.Col span={6}>
-                        <div className="inputs">
+                        <div className="moveLeft">
                             <p className="inputsName">First name</p>
-                            <input ></input> <br></br>
+                            <input className="inputBox"></input> <br></br>
                         </div>
                         
-                        <div className="inputs">
+                        <div className="moveLeft">
                             <p className="inputsName">Last name</p>
-                            <input></input>
+                            <input className="inputBox"></input>
                         </div>
 
-                        <div className="inputs">
+                        <div className="moveLeft">
                             <p className="inputsName">Phone number</p>
-                            <input></input>
+                            <input className="inputBox" type="number"></input>
                         </div>
 
-                        <div className="inputs">
-                            <p className="inputsName">Email</p>
-                            <input></input>
+                        <div className="moveLeft">
+                            <p type="email" className="inputsName">Email</p>
+                            <input className="inputBox"></input>
                         </div>
 
-                        <div className="inputs">
+                        <div className="moveLeft">
                             <p className="inputsName">Password</p>
-                            <input></input>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                value={password}
+                                onChange={handlePasswordChange}
+                                className="inputBox"/>
                         </div>
 
 
                     </Grid.Col>
                     <Grid.Col span={6}>
-                        <div className="inputs">
+                        <div className="moveRight">
                             <p className="inputsName">Province</p>
-                            <input></input>
+                            <input className="inputBox"></input>
                         </div>
 
-                        <div className="inputs">
+                        <div className="moveRight">
                             <p className="inputsName">District</p>
-                            <input></input>
+                            <input className="inputBox"></input>
                         </div>
 
-                        <div className="inputs">
+                        <div className="moveRight">
                             <p className="inputsName">Sector</p>
-                            <input></input>
+                            <input className="inputBox"></input>
                         </div>
 
-                        <div className="inputs">
+                        <div className="moveRight">
                             <p className="inputsName">Cell</p>
-                            <input></input>
+                            <input className="inputBox"></input>
                         </div>
 
-                        <div className="inputs">
+                        <div className="moveRight">
                             <p className="inputsName">Confirm password</p>
-                            <input></input>
-                        </div>
+                            <input className="inputBox" type="password"></input>
+                        </div><br></br>
                     </Grid.Col>
-                </Grid>
+                </Grid> 
 
             
-            <Button>Signup</Button>
+            <Button className="customButton">Signup</Button>
             <div className="toLogin">
-                <p className="haveAccount">Have an account?</p>
+                <p className="haveAccount">have an account?</p>
                 <p onClick={navigateLogin} className="login">login</p>
             </div>
             

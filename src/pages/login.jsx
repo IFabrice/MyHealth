@@ -26,42 +26,26 @@ function LogIn() {
 
     return (
         <Container>
-            <div >
                 <img width="200"  src={myHealthLogo} alt="MyHealth"/><br></br>
-                <Grid>
-                    <Grid.Col span={4}>
-                        <p className="text">Email/Phone number</p><br></br>
-                        <p className="text">Password</p>
-                    </Grid.Col>
-                    <Grid.Col span={8}>
-                        <input  
-                            value={email}
-                            type="email"
-                            id="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Email"
-                        />
-                        <input  
-                            value={password}
-                            type="password"
-                            id="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Password"
-                        /><br></br><br></br>
-                    </Grid.Col>
-                </Grid>
+
+                <div>
+                    <p>Email</p>
+                    <input type="email" className="inputBox"></input>
+                </div>
+
+                <div>
+                    <p>Password</p>
+                    <input type="password" className="inputBox"></input>
+                </div> <br></br>
+
 
                 <Button className="customButton" onClick={signUp}>Login</Button><br></br><br></br>
 
-                <Grid>
-                    <Grid.Col span={7}>
-                        <p className="text2">Don't have an account?</p>
-                    </Grid.Col>
-                    <Grid.Col span={5}>
-                        <p onClick={navigateSignup} className="text">Signup</p>
-                    </Grid.Col>
-                </Grid>
-            </div>
+                <div className="sameRow">
+                    <p className="spaceBetween">Don't have an account?</p>
+                    <p onClick={navigateSignup} className="signup">signup</p>
+                </div>
+
         </Container>
     );
 

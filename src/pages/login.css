@@ -1,11 +1,5 @@
-  
-  .text {
-    float: left;
-    font-size: 16px;
-  }
-
-  .text2 {
-    float: right;
+  .inputBox {
+    height: 30px;
     font-size: 16px;
   }
   
@@ -15,10 +9,32 @@
     padding: 0px 20px;
     cursor: pointer;
     border-radius: 15px;
+    width: 100px;
   }
   
   .customButton:hover {
     background-color: #798ea4;
+  }
+
+  .signup {
+    font-style: italic;
+  }
+
+  .signup:hover {
+    font-style: italic;
+    color: #7c8891;
+    cursor:pointer;
+  }
+
+  .sameRow {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  .spaceBetween {
+    margin-right: 10px;
   }
   
   label {
@@ -29,57 +45,3 @@
     color: #4090b4;
   }
   
-  input[type="email"],
-  input[type="password"] {
-    padding: 13px;
-    font-size: 16px;
-    border: 1px solid #666;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #110d0d;
-    margin-bottom: 20px;
-  }
-  
-  input[type="email"]:focus,
-  input[type="password"]:focus {
-    outline: none;
-    box-shadow: 0 0 5px #666;
-  }
-  
-  input[type="submit"] {
-    padding: 14px 40px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 5px;
-    background-color: #0070c9;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #00509f;
-  }
-  
-  #message-box {
-    margin-top: 20px;
-  }
-  
-  .message {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .success {
-    background-color: #4caf50;
-    color: #fff;
-  }
-  
-  .error {
-    background-color: #f44336;
-    color: #fff;
-  }
