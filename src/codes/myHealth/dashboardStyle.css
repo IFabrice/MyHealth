@@ -1,0 +1,81 @@
+/* Reset default margin and padding */
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #000;
+    padding: 0px;
+  }
+  
+  /* Dropdown styles */
+  .dropdown {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .dropbtn {
+    background-color: #0070c9;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+  }
+  
+  .dropdown-content a {
+    color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: white;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Welcome message styles */
+  .welcome-message {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .welcome-message h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-message p {
+    font-size: 16px;
+  }
+  
