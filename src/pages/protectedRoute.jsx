@@ -1,19 +1,25 @@
-import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { useContext } from "react";
+import { useLocation } from "react-router";
+import { Navigate, Outlet } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const ProtectedRoute = () => {
-  const auth = null;
 
+const ProtectedRoutes = (props) => {
+  const {isAuth} = props;
 
-} = ({ component: Component, isAuthenticated, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        isAuthenticated ? <Component {...props} /> : <Navigate to="/login" />
-      }
-    />
+  const location = useLocation();
+
+  console.log("Trying :)");
+  return isAuth ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/" replace state={{ from: location }} />
   );
 };
 
-export default ProtectedRoute;
+
+export default ProtectedRoutes;
+
+ProtectedRoutes.propTypes = {
+  isAuth: PropTypes.func.isRequired,
+}

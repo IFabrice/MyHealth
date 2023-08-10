@@ -11,51 +11,69 @@ import { Container } from '@mantine/core'
 import NavBar from './pages/NavBar'
 import TestResults from './pages/TestResults'
 import Visits from './pages/Visits'
+import ProtectedRoutes from './pages/protectedRoute'
+import supabase from "./lib/supabaseClient";
 
 function App() {
-  const [token, setToken] = useState(false)
+  // const [user, setUser] = useState("") 
+  
 
-  if(token) {
-    sessionStorage.setItem("token", JSON.stringify(token))
-  }
-
-  useEffect(() => {
-    if (sessionStorage.getItem('token')) {
-      let data = JSON.parse(sessionStorage.getItem(token))
-      setToken(data)
+  async function isAuth() {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      return true;
+    } else {
+      return false;
     }
-  }, [])
+  } 
+
+  // useEffect(() => {
+  //   if (user_sample)  {
+
+  //   }
+  //   if (user) {
+  //     let data = JSON.parse(sessionStorage.getItem(token))
+  //     setToken(data)
+  //   }
+  // }, []) 
 
   return (
     
       <Routes>
-        {token?<Route
-          path="/home"
-          element={<Home/>} 
-        />:""}
         <Route
           path="/signup"
           element={<SignUp/>} 
         />
-        {token?<Route
-          path='/test-results'
-          element={<TestResults/>}
-          />:""}
-        {token?<Route
-          path="/visits"
-          element={<Visits/>} 
-          />:""}
 
         <Route
           path='/'
-          element={<LogIn token={token} setToken={setToken}/>} 
+          element={<LogIn/>} 
         />
 
-        <Route
-          path='/results-entry'
-          element={<ResultsEntry/>}
+        <Route element={<ProtectedRoutes isAuth={isAuth}/>} >  
+          <Route
+            path="/home"
+            element={<Home/>} 
           />
+          
+          <Route
+            path='/test-results'
+            element={<TestResults/>}
+            />
+          <Route
+            path="/visits"
+            element={<Visits/>} 
+            />
+          <Route
+            path='/results-entry'
+            element={<ResultsEntry/>}
+            />
+        </Route>
+
       </Routes>
+
+        
+        
   
   );
 }

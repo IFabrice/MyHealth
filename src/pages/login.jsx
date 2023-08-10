@@ -9,7 +9,6 @@ import './login.css';
 
 
 function LogIn(props) {
-    const {setToken, token} = props;
 
     const navigate = useNavigate();
     const form = useForm({
@@ -27,6 +26,11 @@ function LogIn(props) {
         }),
     });
 
+    // const user = supabase.auth.user();
+
+    const verifyAuth = () => user? isAuthenticated=true:false;   // Check if there an authenticated user
+    
+
     
     async function signInWithPassword(values) {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -37,15 +41,10 @@ function LogIn(props) {
         if (error) {
             console.log("There is an error", error);
         }
-        else {
-            navigate("/home")
-            setToken(user?.session?.access_token);
-            console.log("came out of the function")
-            if (token) {
-                console.log("The token is here")
-            }
-            
-        }
+
+
+        if (data) navigate("/home");
+        else console.log("Login failed!!")
     }
 
     const navigateSignup = () => {
@@ -95,8 +94,3 @@ function LogIn(props) {
 
 
 export default LogIn;
-
-LogIn.propTypes = {
-    setToken: PropTypes.func.isRequired,
-    token: PropTypes.bool,
-}
