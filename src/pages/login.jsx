@@ -1,56 +1,102 @@
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Grid, Button, Container } from "@mantine/core";
+import { TextInput, Checkbox, Button, Group, Box, Container } from '@mantine/core';
+import { useForm } from '@mantine/form';
 import supabase from "../lib/supabaseClient";
 import { useNavigate } from "react-router-dom";
 import myHealthLogo from "../lib/myHealthLogo.png"
+import PropTypes from "prop-types";
 import './login.css';
 
 
-function LogIn() {
+function LogIn(props) {
+    const {setToken, token} = props;
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const form = useForm({
+        initialValues: {
+            email: '',
+            password: '',
+    },
 
-    async function signUp() {
-        const { data, error } = await supabase.auth.signUp({
-          email: email,
-          password: password,
+        validate: (values) => ({
+            email:  (/^\S+@\S+$/.test(values.email) ? null 
+                 : 'Invalid email'),
+            password: values.password.length < 8 ? 'Password must have at least 8 characters'
+                    : !(/\d/.test(values.password)) ? 'Password must contain at least 1 digit'
+                    : null,
+        }),
+    });
+
+    
+    async function signInWithPassword(values) {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: values.email,
+          password: values.password,
         })
+
+        if (error) {
+            console.log("There is an error", error);
+        }
+        else {
+            navigate("/home")
+            setToken(user?.session?.access_token);
+            console.log("came out of the function")
+            if (token) {
+                console.log("The token is here")
+            }
+            
+        }
     }
 
     const navigateSignup = () => {
         navigate("/signup");
-    }    
+    }   
+
 
     return (
-        <Container>
-                <img width="200"  src={myHealthLogo} alt="MyHealth"/><br></br>
 
-                <div>
-                    <p>Email</p>
-                    <input type="email" className="inputBox"></input>
-                </div>
+        <Box maw={300} mx="auto">
+            <img width="200"  src={myHealthLogo} alt="MyHealth"/><br></br>
 
-                <div>
-                    <p>Password</p>
-                    <input type="password" className="inputBox"></input>
-                </div> <br></br>
+            <form onSubmit={form.onSubmit((values) => signInWithPassword(values))}>
 
+                <p>Email</p> 
 
-                <Button className="customButton" onClick={signUp}>Login</Button><br></br><br></br>
+                <TextInput
+                    
+                    label="Email"
+                    placeholder="your@email.com"
+                    {...form.getInputProps('email')}
+                />
 
-                <div className="sameRow">
-                    <p className="spaceBetween">Don't have an account?</p>
-                    <p onClick={navigateSignup} className="signup">signup</p>
-                </div>
+                <p>Password</p>
 
-        </Container>
-    );
+                <TextInput
+                    
+                    label="Password"
+                    placeholder="password"
+                    type="password"
+                    {...form.getInputProps('password')}
+                />
+
+                <Group position="center" mt="md">
+                    <Button type="submit" className="customButton">Submit</Button>
+                    <div className="sameRow">
+                        <p className="spaceBetween">Don't have an account?</p>
+                        <p onClick={navigateSignup} className="signup">signup</p>
+                    </div>
+                </Group>
+            </form>
+        </Box>
+        );
 
 }
 
 
 
 export default LogIn;
+
+LogIn.propTypes = {
+    setToken: PropTypes.func.isRequired,
+    token: PropTypes.bool,
+}

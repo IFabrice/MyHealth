@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import { Container } from '@mantine/core';
+import "./TestResults.css";
 
 const TestResults = () => {
   return (
@@ -8,6 +9,11 @@ const TestResults = () => {
       <header>
         <NavBar />
       </header>
+
+      <div>
+        <h3 className='title1'>Test Results</h3>
+
+      </div>
     </Container>
   );
 };

@@ -1,0 +1,10 @@
+.title1 {
+    text-align: left;
+    font-size: 14;
+}
+
+const override: CSSProperties = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  }

@@ -56,5 +56,11 @@
   .customButton:hover {
     background-color: #798ea4;
   }
+
+  .sameRow {
+    font-size: 16px;
+    display: flex;
+    margin-left: 5px;
+  }
   
   

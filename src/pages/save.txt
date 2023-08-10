@@ -1,0 +1,107 @@
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const navigate = useNavigate();
+
+    // async function signUp() {
+    //     const { data, error } = await supabase.auth.signUp({
+    //       email: email,
+    //       password: password,
+    //     })
+    // }
+
+    // const navigateSignup = () => {
+    //     navigate("/signup");
+    // }    
+
+
+
+
+<Container>
+                <img width="200"  src={myHealthLogo} alt="MyHealth"/><br></br>
+
+                <div>
+                    <p>Email</p>
+                    <input type="email" className="inputBox"></input>
+                </div>
+
+                <div>
+                    <p>Password</p>
+                    <input type="password" className="inputBox"></input>
+                </div> <br></br>
+
+
+                <Button className="customButton" onClick={signUp}>Login</Button><br></br><br></br>
+
+                <div className="sameRow">
+                    <p className="spaceBetween">Don't have an account?</p>
+                    <p onClick={navigateSignup} className="signup">signup</p>
+                </div>
+
+        </Container>
+
+
+
+
+
+***********************************************
+
+
+                            <Grid.Col span={6}>
+                        <div className="moveLeft">
+                            <p className="inputsName">First name</p>
+                            <input className="inputBox"></input> <br></br>
+                        </div>
+                        
+                        <div className="moveLeft">
+                            <p className="inputsName">Last name</p>
+                            <input className="inputBox"></input>
+                        </div>
+
+                        <div className="moveLeft">
+                            <p className="inputsName">Phone number</p>
+                            <input className="inputBox" type="number"></input>
+                        </div>
+
+                        <div className="moveLeft">
+                            <p type="email" className="inputsName">Email</p>
+                            <input className="inputBox"></input>
+                        </div>
+
+                        <div className="moveLeft">
+                            <p className="inputsName">Password</p>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                value={password}
+                                onChange={handlePasswordChange}
+                                className="inputBox"/>
+                        </div>
+
+
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <div className="moveRight">
+                            <p className="inputsName">Province</p>
+                            <input className="inputBox"></input>
+                        </div>
+
+                        <div className="moveRight">
+                            <p className="inputsName">District</p>
+                            <input className="inputBox"></input>
+                        </div>
+
+                        <div className="moveRight">
+                            <p className="inputsName">Sector</p>
+                            <input className="inputBox"></input>
+                        </div>
+
+                        <div className="moveRight">
+                            <p className="inputsName">Cell</p>
+                            <input className="inputBox"></input>
+                        </div>
+
+                        <div className="moveRight">
+                            <p className="inputsName">Confirm password</p>
+                            <input className="inputBox" type="password"></input>
+                        </div><br></br>
+                    </Grid.Col>

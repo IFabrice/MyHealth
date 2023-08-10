@@ -52,6 +52,11 @@ const NavBar = () => {
               <Link to="/add-results" className="dropdown-link">
                 Add Results
               </Link>
+              
+              <Link to="/results-entry" className="dropdown-link">
+                Enter Results
+              </Link>
+
               <Link to="/messaging" className="dropdown-link">
                 Messaging
               </Link>
