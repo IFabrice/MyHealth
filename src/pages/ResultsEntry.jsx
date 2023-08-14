@@ -4,7 +4,7 @@ import { useForm } from '@mantine/form';
 import { Container, Button } from '@mantine/core';
 import { Group } from '@mantine/core';
 import "./ResultsEntry.css";
-
+import Search_patient from '../lib/search_patient';
 
 
 const ResultsEntry = () => {
@@ -52,17 +52,11 @@ const ResultsEntry = () => {
         </header>
 
         <center>
-            <h3>Test Entry</h3>
-            <Group position="left">
-                <p>Patient's name</p>
-                <input type='string'></input>
-            </Group>
+            <Search_patient/>
 
-            <Group position="left">
-                <p>Date of birth</p>
-                <input type='number'></input>
-            </Group>
-                
+            
+            <h2>Test results entry</h2>
+
             <Group position="left">
                 <p>Test Type</p>
                 <select onChange={onOptionChangeHandler}>
@@ -76,7 +70,6 @@ const ResultsEntry = () => {
                 </select>
             </Group>
 
-            <h2>Test results entry</h2>
             
             <form onSubmit={form.onSubmit((values)=> console.log(values))}>
                 <Group>

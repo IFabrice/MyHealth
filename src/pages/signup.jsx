@@ -95,7 +95,7 @@ function SignUp() {
 
             <form onSubmit={form.onSubmit((values) => handleSignUp(values))}>
             <Grid>
-                <Grid.Col span={6}>
+            <Grid.Col span={6}>
                 <Box maw={300} mx="auto">
 
                     <p>First Name</p>

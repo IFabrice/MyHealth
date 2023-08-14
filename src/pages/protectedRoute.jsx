@@ -11,7 +11,7 @@ const ProtectedRoutes = (props) => {
 
   console.log("Trying :)");
   return isAuth ? (
-    <Outlet />
+    <Outlet /> 
   ) : (
     <Navigate to="/" replace state={{ from: location }} />
   );
