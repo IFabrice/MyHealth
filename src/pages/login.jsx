@@ -20,9 +20,9 @@ function LogIn(props) {
         validate: (values) => ({
             email:  (/^\S+@\S+$/.test(values.email) ? null 
                  : 'Invalid email'),
-            password: values.password.length < 8 ? 'Password must have at least 8 characters'
-                    : !(/\d/.test(values.password)) ? 'Password must contain at least 1 digit'
-                    : null,
+            // password: values.password.length < 8 ? 'Password must have at least 8 characters'
+            //         : !(/\d/.test(values.password)) ? 'Password must contain at least 1 digit'
+            //         : null,
         }),
     });
 
@@ -43,7 +43,10 @@ function LogIn(props) {
         }
 
 
-        if (data) navigate("/home");
+        if (data.user) {
+            console.log(data);
+            navigate("/");
+        }
         else console.log("Login failed!!")
     }
 

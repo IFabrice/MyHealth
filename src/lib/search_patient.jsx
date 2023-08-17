@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Container, Button, Grid, Group, Box } from '@mantine/core';
 import supabase from './supabaseClient';
-import customButton from './customButton.css'
+import './searchButton.css'
 
 const Search_patient = () => {
 
@@ -50,7 +50,6 @@ const Search_patient = () => {
             console.log("the user", user);
             setCurrentUser(user);
         }
-
     }
 
     const getUser = (searchEmail, firstName, lastName) => {
@@ -65,7 +64,7 @@ const Search_patient = () => {
 
     return (
         <center>
-            <h3>Patient Search</h3>
+            <h3>Search Patient</h3>
 
             <Grid>
             <Grid.Col span={6}>
@@ -113,7 +112,7 @@ const Search_patient = () => {
             </Grid.Col>
             </Grid> 
 
-            <Button onClick={getUser} className='customButton'>Search</Button>            
+            <Button onClick={getUser} className='searchButton'>Search</Button>            
                 
             
         </center>

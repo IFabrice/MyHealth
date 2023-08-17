@@ -1,25 +1,20 @@
 import { useContext } from "react";
 import { useLocation } from "react-router";
 import { Navigate, Outlet } from "react-router-dom";
-import PropTypes from "prop-types";
+import { useUser } from "../lib/authContext";
 
+const protectedRoute = () => {
 
-const ProtectedRoutes = (props) => {
-  const {isAuth} = props;
+  const {user} = useUser();
 
   const location = useLocation();
 
-  console.log("Trying :)");
-  return isAuth ? (
+  return user ? (
     <Outlet /> 
   ) : (
-    <Navigate to="/" replace state={{ from: location }} />
+    <Navigate to="/login" replace state={{ from: location }} />
   );
 };
 
 
-export default ProtectedRoutes;
-
-ProtectedRoutes.propTypes = {
-  isAuth: PropTypes.func.isRequired,
-}
+export default protectedRoute;

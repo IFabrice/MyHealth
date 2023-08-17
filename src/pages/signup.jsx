@@ -31,11 +31,7 @@ function SignUp() {
             firstName: '',
             lastName: '',
             phoneNumber: '',
-            province: '',
-            district: '',
-            sector: '',
-            cell: '',
-
+            hospital_name: '',
         },
 
         validate: (values) => ({
@@ -46,19 +42,11 @@ function SignUp() {
                     : null,
             confirmPassword: values.password !== values.confirmPassword ? 'Passwords did not match'
                     : null,
-            phoneNumber: !/^\d+$/.test(values.phoneNumber) ? 'Password must be a number'
-                       : null,
             firstName: values.firstName.length < 2 ? 'First name is required'
                      : null,
             lastName: values.lastName.length < 2 ? 'Last name is required'
                     : null,
-            province: values.province.length < 2 ? 'Province is required'
-                    : null,
-            district: values.district.length < 2 ? 'District is required'
-                    : null,
-            sector: values.sector.length < 2 ? 'Sector is required'
-                    : null,
-            cell: values.cell.length < 2 ? 'Cell is required'
+            hospital_name: values.hospital_name.length < 2 ? 'Hospital name is required'
                     : null,
 
         }),
@@ -74,20 +62,13 @@ function SignUp() {
                     data: {
                         firstName: values.firstName,
                         lastName: values.lastName,
-                        phoneNumber: values.phoneNumber,
-                        province: values.province,
-                        district: values.district,
-                        sector: values.sector,
-                        cell: values.cell,
+                        hospital_name: values.hospital_name,
                     },
                 },
                 
             })
     }
 
-    const navigateSignup = () => {
-        navigate("/signup");
-    }   
 
     return (
         <Container>
@@ -108,26 +89,7 @@ function SignUp() {
                         {...form.getInputProps('firstName')}
                     />
 
-                    <p>Last Name</p>
-
-                    <TextInput
-                        label="Last Name"
-                        placeholder="Last Name"
-                        required
-                        type="String"
-                        {...form.getInputProps('lastName')}
-                    />
-
-                    <p>Phone number</p>
-
                     
-                    <TextInput
-                        label="Phone number"
-                        placeholder="Phone number"
-                        required
-                        type="number"
-                        {...form.getInputProps('phoneNumber')}
-                    />
                     <p>Email</p> 
 
                     <TextInput
@@ -156,44 +118,25 @@ function SignUp() {
             <Grid.Col span={6}>
                 <Box maw={300} mx="auto">
 
-                    <p>Province</p>
+                    <p>Last Name</p>
 
                     <TextInput
-                        label="Province"
+                        label="Last Name"
+                        placeholder="Last Name"
                         required
-                        placeholder="Province"
                         type="String"
-                        {...form.getInputProps('province')}
+                        {...form.getInputProps('lastName')}
                     />
 
-                    <p>District</p>
+            
+                    <p>Hospital Name</p> 
 
                     <TextInput
                         required
-                        label="District"
-                        placeholder="District"
+                        label="hospital_name"
+                        placeholder="Hospital Name"
                         type="String"
-                        {...form.getInputProps('district')}
-                    />
-
-                    <p>Sector</p>
-
-                    
-                    <TextInput
-                        required
-                        label="sector"
-                        placeholder="Sector"
-                        type="String"
-                        {...form.getInputProps('sector')}
-                    />
-                    <p>Cell</p> 
-
-                    <TextInput
-                        required
-                        label="cell"
-                        placeholder="Cell"
-                        type="String"
-                        {...form.getInputProps('cell')}
+                        {...form.getInputProps('hospital_name')}
                     />
 
                     <p>Confirm password</p>
